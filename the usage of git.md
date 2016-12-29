@@ -37,7 +37,7 @@
 
 - git status命令让我们时刻掌握仓库当前的状态
 - git diff 查看仓库具体被修改了什么内容
-- git log 显示从最近到最远的提交日志。如果输出信息太多，可以加上--pretty=online参数，此时看到左边为commit id,右边为提交日志。
+- git log 显示从最近到最远的提交日志。如果输出信息太多，可以加上--pretty=oneline参数，此时看到左边为commit id,右边为提交日志。
 
 > git用HEAD表示当前目录，上一个版本就是HEAD^,上上一个版本就是HEAD^^。或者用HEAD~100表示往上100个版本。
 
