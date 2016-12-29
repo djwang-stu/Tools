@@ -169,10 +169,25 @@
    To github.com:xianliti/github.git
     * [new branch]      master -> master
    Branch master set up to track remote branch master from origin_name.
-
    ```
 
    > 解读：这是第一次使用git的clone或者push命令连接github时会得到的一个警告。需要你确认github的key的指纹信息是否真的来自github的服务器，输入yes回车即可。最后git会输出一个警告，告诉你已经把github的key添加到本机的一个信任列表中了。
 
 
+
+#### 从远程库克隆
+
+> 在上一节介绍了先有本地库后有远程库的时候，关联远程库的方法。现在，假设我们从零开发，那么最好的方式是先创建远程库，然后，从远程库克隆。
+
+1. 在github中创建一个远程库repo_to_clone
+
+2. 在git bash中cd到一个目录，我们会把远程库克隆到这个目录下面
+
+   ```
+   git clone git@github.com:xianliti/repo_to_clone
+   ```
+
+> 你也许还注意到，GitHub给出的地址不止一个，还可以用`https://github.com/michaelliao/gitskills.git`这样的地址。实际上，Git支持多种协议，默认的`git://`使用ssh，但也可以使用`https`等其他协议。
+>
+> 使用`https`除了速度慢以外，还有个最大的麻烦是每次推送都必须输入口令，但是在某些只开放http端口的公司内部就无法使用`ssh`协议而只能用`https`。
 
