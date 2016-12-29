@@ -41,3 +41,15 @@
 
 > git用HEAD表示当前目录，上一个版本就是HEAD^,上上一个版本就是HEAD^^。或者用HEAD~100表示往上100个版本。
 
+#### 版本回退功能
+
+* git reset --hard  HEAD^    回退到上一个版本，会把被取消的版本从时间线上抹除，即git log不能显示。
+
+* git reset --hard commit_id 回退到任意版本，只要你记得commit_id。
+
+* 想恢复到新版本，但是又不记得commit_id。可以用一下方法找到commit_id。
+
+  git reflog 查看命令历史，以便确定要回到未来的哪个版本。
+
+  ​
+
