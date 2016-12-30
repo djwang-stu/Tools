@@ -112,65 +112,62 @@
 
 本地git仓库和github仓库之间的传输是通过SSH加密的，所以需要一点设置。
 
-1. 创建ssh key. 在git bash中
+1.  创建ssh key. 在git bash中
 
-   ```
-   ssh-keygen -t rsa -C "youremail@example.com"
-   ```
+    ```
+    ssh-keygen -t rsa -C "youremail@example.com"
+    ```
 
-2. 在用户主目录中找到.ssh目录。里面有id_rsa和id_rsa.pub。这两个就是SSH Key的秘钥对，`id_rsa`是私钥，不能泄露出去，`id_rsa.pub`是公钥，可以放心地告诉任何人。
+2.  在用户主目录中找到.ssh目录。里面有id_rsa和id_rsa.pub。这两个就是SSH Key的秘钥对，`id_rsa`是私钥，不能泄露出去，`id_rsa.pub`是公钥，可以放心地告诉任何人。
 
-3. 在github中add ssh key。填上任意title，在key文本框里粘贴id_rsa.pub文件的内容。
+3.  在github中add ssh key。填上任意title，在key文本框里粘贴id_rsa.pub文件的内容。
 
-4. 在github中创建一个repo。repo的名字为github
+4.  在github中创建一个repo。repo的名字为github
 
-5. 把一个已有的本地仓库与github库关联，然后把本地仓库的内容推送到github仓库
+5.  把一个已有的本地仓库与github库关联，然后把本地仓库的内容推送到github仓库
 
-   ```
-   git remote add origin git@github.com:xianliti/github.git
-   ```
 
-   远程库的名字为origin，当然可以修改为其他名字，但是origin这个名字一看就知道是远程库（git的默认叫法）
+    git remote add origin git@github.com:xianliti/github.git
 
-   ​
+​     远程库的名字为origin，当然可以修改为其他名字，但是origin这个名字一看就知道是远程库（git的默认叫法）
 
-6. 把本地库的内容推送到远程库
 
-   ```
-   git push -u origin master
-   ```
+6.  把本地库的内容推送到远程库
 
-   由于远程库是空的，我们第一次推送`master`分支时，加上了`-u`参数，Git不但会把本地的`master`分支内容推送的远程新的`master`分支，还会把本地的`master`分支和远程的`master`分支关联起来，在以后的推送或者拉取时就可以简化命令。
+    ```
+    git push -u origin master
+    ```
 
-   从现在起，只要本地做了提交，就可以通过命令
+    由于远程库是空的，我们第一次推送`master`分支时，加上了`-u`参数，Git不但会把本地的`master`分支内容推送的远程新的`master`分支，还会把本地的`master`分支和远程的`master`分支关联起来，在以后的推送或者拉取时就可以简化命令。
 
-   ```
-   git push origin master
-   ```
+    从现在起，只要本地做了提交，就可以通过命令
 
-   ​
+    ```
+    git push origin master
+    ```
 
-   ​
+    ​
 
-   SSH警告
+    ​
 
-   ```
-   $ git push -u origin_name master
-   The authenticity of host 'github.com (192.30.253.112)' can't be established.
-   RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
-   Are you sure you want to continue connecting (yes/no)? yes
-   Warning: Permanently added 'github.com,192.30.253.112' (RSA) to the list of known hosts.
-   Counting objects: 24, done.
-   Delta compression using up to 4 threads.
-   Compressing objects: 100% (15/15), done.
-   Writing objects: 100% (24/24), 4.11 KiB | 0 bytes/s, done.
-   Total 24 (delta 5), reused 0 (delta 0)
-   remote: Resolving deltas: 100% (5/5), done.
-   To github.com:xianliti/github.git
+    SSH警告
+
+    ```github
+    $ git push -u origin_name master
+    The authenticity of host 'github.com (192.30.253.112)' can't be established.
+    RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
+    Are you sure you want to continue connecting (yes/no)? yes
+    Warning: Permanently added 'github.com,192.30.253.112' (RSA) to the list of known hosts.
+    Counting objects: 24, done.
+    Delta compression using up to 4 threads.
+    Compressing objects: 100% (15/15), done.
+    Writing objects: 100% (24/24), 4.11 KiB | 0 bytes/s, done.
+    Total 24 (delta 5), reused 0 (delta 0)
+    remote: Resolving deltas: 100% (5/5), done.
+    To github.com:xianliti/github.git
     * [new branch]      master -> master
-   Branch master set up to track remote branch master from origin_name.
-   ```
-
+    Branch master set up to track remote branch master from origin_name.
+    ```
    > 解读：这是第一次使用git的clone或者push命令连接github时会得到的一个警告。需要你确认github的key的指纹信息是否真的来自github的服务器，输入yes回车即可。最后git会输出一个警告，告诉你已经把github的key添加到本机的一个信任列表中了。
 
 
@@ -182,7 +179,6 @@
 1. 在github中创建一个远程库repo_to_clone
 
 2. 在git bash中cd到一个目录，我们会把远程库克隆到这个目录下面
-
    ```
    git clone git@github.com:xianliti/repo_to_clone
    ```
@@ -192,4 +188,10 @@
 > 使用`https`除了速度慢以外，还有个最大的麻烦是每次推送都必须输入口令，但是在某些只开放http端口的公司内部就无法使用`ssh`协议而只能用`https`。
 
 #### 分支管理
+
+> 在版本回退中，每次提交，git把他们串成一条时间线，这条时间线就是一个分支，目前为止只有一条时间线，这个分支就是主分支（master分支）。HEAD严格来说不是指向提交，而是指向master，master指向提交，所以，HEAD指向的就是当前分支
+
+[创建与合并分支原理讲解](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/001375840038939c291467cc7c747b1810aab2fb8863508000)
+
+
 
