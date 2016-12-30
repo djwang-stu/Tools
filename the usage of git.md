@@ -246,6 +246,5 @@
   删除分支：`git branch -d <name>`
 
 
+#### 合并分支冲突解决
 
-
-add some meaningless to test branch
