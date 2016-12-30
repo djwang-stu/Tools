@@ -29,7 +29,8 @@
 - 告诉git，把文件提交到仓库
 
   1. 添加本次提交说明： git commit -m "I worte the usage of git"
-  2. 或者不带提交说明，但不建议 git commit
+
+- 可以简化add 和commit过程。 git commit -a -m "add and commit"
 
 
 
