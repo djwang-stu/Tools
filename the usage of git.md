@@ -193,5 +193,59 @@
 
 [创建与合并分支原理讲解](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/001375840038939c291467cc7c747b1810aab2fb8863508000)
 
+* 1. 创建dev分支，切换到dev分支
+
+     ```
+     git branch dev
+     git checkout dev
+     以上两条命令等价于git checkout -b dev
+     ```
+
+  2. 查看当前分支
+
+     ```
+     git branch
+     该命令会列出所有分支，当前分支前面会标出一个*号
+     ```
+
+  3. 在当前分支上正常修改，然后提交
+
+     ```
+     修改了文件"the usage of git.md"
+     git add "the usage of git.md"
+     git commit -m "branch test"
+     ```
+
+  4. 完成了dev分支的工作，切换回master分支,此时添加的内容还不会显示
+
+     ```
+     git checkout master
+     ```
+
+  5. 把dev分支的工作成果合并到master分支上
+
+     ```
+     git merge dev
+     merge表示把指定分支(dev)合并到当前分支(master)
+     ```
+
+     > fast-forward快进模式，直接把master指向dev的当前提交，合并速度非常快。但不是每次合并都能fast-forward，还会有其他方式的合并
+
+  6. 最后一步，删除dev分支
+
+     ``` 
+     git branch -d dev
+     -d参数表示delete
+     ```
+
+  查看分支：`git branch`
+  创建分支：`git branch <name>` 
+  切换分支：`git checkout <name>`
+  创建+切换分支：`git checkout -b <name>`
+  合并某分支到当前分支：`git merge <name>`
+  删除分支：`git branch -d <name>`
 
 
+
+
+add some meaningless to test branch
